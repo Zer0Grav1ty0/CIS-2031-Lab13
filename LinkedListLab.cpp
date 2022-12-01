@@ -52,10 +52,12 @@ bool contains(List* l, string needle){
 
 //Add an item to the list
 void insertAt(List* &list, int pos, string value){
-    if ( list == NULL)
-        return;
+    if( list == NULL || pos == 0 ){
+        list = new List{value, list};
+    } else {
+        insertAt(list->next, pos - 1, value);
+    }
     
-
 }
 
 //Remove an item from the list
